@@ -270,7 +270,7 @@
         <div class="row row-three">
           <div class="two-col-grid">
             <!-- clicking opens new modal for Direct Cash Plus Program -->
-            <div class="grid-item cursor-pointer" @click="openModal('CASH')">
+            <div class="grid-item big-button" @click="openModal('CASH')">
               <div class="item-group">
                 <img
                   src="/icon-listing.png"
@@ -286,7 +286,7 @@
               </p>
             </div>
             <!-- clicking opens new modal for Smart Listings Program -->
-            <div class="grid-item cursor-pointer" @click="openModal('SMART')">
+            <div class="grid-item big-button" @click="openModal('SMART')">
               <div class="item-group">
                 <img
                   src="/icon-partner.png"
@@ -708,6 +708,29 @@
     .icon {
       margin: 0 auto;
     }
+  }
+
+  .big-button {
+    cursor: pointer;
+    transition:
+      transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+      box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+
+    &:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+
+      .icon {
+        transform: rotate(-15deg) scale(1.1);
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+    }
+  }
+
+  /* Ensure icons have smooth transform */
+  .big-button .icon {
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    transform-origin: center;
   }
 
   .modal {
