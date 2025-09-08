@@ -67,16 +67,23 @@
             <!-- Right Column -->
             <div class="slide-col-right">
               <p v-if="testimonial.quote" class="quote">
-                “{{ testimonial.quote }}”
+                “{{ testimonial.quote }}
               </p>
-              <h3>{{ testimonial.lead }}</h3>
+              <h3>
+                <span v-if="!testimonial.quote">“</span
+                ><span>{{ testimonial.lead }}</span>
+              </h3>
               <div class="testimonial-body">
                 <p
                   v-for="(line, index) in testimonial.body.split('\n')"
                   :key="index"
                   class="testimonial-body-line"
                 >
-                  {{ line }}
+                  <span>{{ line }}</span
+                  ><span
+                    v-if="index === testimonial.body.split('\n').length - 1"
+                    >”</span
+                  >
                 </p>
               </div>
             </div>

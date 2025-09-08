@@ -35,9 +35,7 @@
         </div>
 
         <div class="slide-body">
-          <p v-if="testimonial.quote" class="quote">
-            “{{ testimonial.quote }}”
-          </p>
+          <p v-if="testimonial.quote" class="quote">“{{ testimonial.quote }}</p>
           <h3>{{ testimonial.lead }}</h3>
           <div class="testimonial-body">
             <p
@@ -45,7 +43,7 @@
               :key="index"
               class="testimonial-body-line"
             >
-              {{ line }}
+              {{ line }}”
             </p>
           </div>
         </div>
