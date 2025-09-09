@@ -132,7 +132,7 @@
         <h4>Jessie D.</h4>
         <div class="two-col-grid">
           <div class="grid-item">
-            <video controls width="100%">
+            <video controls width="100%" poster="/investors/video-poster.jpg">
               <source src="/investors/video.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
