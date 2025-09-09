@@ -44,7 +44,7 @@
   onMounted(() => {
     interval = setInterval(() => {
       currentSlide.value = (currentSlide.value + 1) % slides.length
-    }, 4000)
+    }, 5000)
   })
 
   onUnmounted(() => {
@@ -137,12 +137,7 @@
   .layout {
     display: grid;
     gap: 16px;
-    height: 400px;
-  }
-  @media (min-width: 768px) {
-    .layout {
-      height: 490px;
-    }
+    //height: 400px;
   }
 
   .layout-portrait-landscape {
@@ -162,6 +157,7 @@
     grid-template-columns: 1fr;
 
     .slide-image {
+      height: 300px;
       object-fit: cover;
       object-position: 0 center;
     }
@@ -182,6 +178,9 @@
   }
 
   @media (min-width: 768px) {
+    .layout {
+      height: 490px;
+    }
     .layout-portrait-landscape {
       grid-template-columns: 1fr 2fr;
     }
@@ -190,6 +189,9 @@
     }
     .layout-triple-portrait {
       grid-template-columns: 1fr 1fr 1fr;
+      .slide-image {
+        height: auto;
+      }
     }
     .layout-landscape {
       height: 490px;
