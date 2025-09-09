@@ -1,5 +1,5 @@
 <script setup>
-  import { ref } from 'vue'
+  import { ref, onMounted, nextTick } from 'vue'
   import { Swiper, SwiperSlide } from 'swiper/vue'
   import { Navigation } from 'swiper/modules'
   import 'swiper/css'
@@ -12,12 +12,41 @@
     loop: { type: Boolean, default: true },
   })
 
-  const uid = Math.random().toString(36).substring(2, 9)
+  const prevEl = ref(null)
+  const nextEl = ref(null)
+  const swiperInstance = ref(null)
 
-  const navigationOptions = {
-    prevEl: `.custom-prev-${uid}`,
-    nextEl: `.custom-next-${uid}`,
+  function attachNavigation() {
+    const s = swiperInstance.value
+    const prev = prevEl.value
+    const next = nextEl.value
+    if (!s || !prev || !next) return
+
+    s.params.navigation = s.params.navigation || {}
+    s.params.navigation.prevEl = prev
+    s.params.navigation.nextEl = next
+
+    if (s.navigation && typeof s.navigation.destroy === 'function') {
+      s.navigation.destroy()
+    }
+
+    // initialise/update navigation
+    if (s.navigation && typeof s.navigation.init === 'function') {
+      s.navigation.init()
+      s.navigation.update()
+    }
   }
+
+  function onSwiper(swiper) {
+    swiperInstance.value = swiper
+    // try attaching immediately (if buttons are mounted)
+    attachNavigation()
+  }
+
+  onMounted(async () => {
+    await nextTick()
+    attachNavigation()
+  })
 </script>
 
 <template>
@@ -25,7 +54,7 @@
     <Swiper
       :modules="[Navigation]"
       :loop="loop"
-      :navigation="navigationOptions"
+      @swiper="onSwiper"
       class="custom-swiper"
     >
       <SwiperSlide v-for="(img, i) in slides" :key="i">
@@ -34,16 +63,16 @@
     </Swiper>
 
     <div class="caption">
-      <button :class="['custom-prev', `custom-prev-${uid}`]">←</button>
+      <button ref="prevEl" class="custom-prev">←</button>
       <div class="caption-label">
         <template v-if="link">
-          <a :href="link" target="_blank">{{ label }}</a>
+          <a :href="link" target="_blank" rel="noopener">{{ label }}</a>
         </template>
         <template v-else>
           {{ label }}
         </template>
       </div>
-      <button :class="['custom-next', `custom-next-${uid}`]">→</button>
+      <button ref="nextEl" class="custom-next">→</button>
     </div>
   </div>
 </template>
@@ -58,6 +87,7 @@
   .custom-swiper {
     width: 100% !important;
     height: auto !important;
+
     .swiper-slide {
       width: 100% !important;
       height: auto !important;
@@ -65,6 +95,7 @@
       align-items: center;
       justify-content: center;
     }
+
     img {
       width: 100%;
       height: auto;
@@ -91,10 +122,10 @@
     transition:
       transform 0.2s ease,
       opacity 0.2s ease;
-    &:hover {
-      opacity: 0.92;
-      transform: translateY(-1px);
-    }
+  }
+  .caption-label a:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
   }
 
   .custom-prev,

@@ -30,13 +30,7 @@
           Real <span>people</span>. Real <span>partnerships</span>. Real
           <span>impact</span>.
         </h2>
-        <div class="two-col-grid">
-          <img
-            src="/investors/unlocked-real-partnerships.jpg"
-            alt="Real People"
-          />
-          <img src="/investors/unlocked-real-people.jpg" alt="Real Impact" />
-        </div>
+        <SlideshowInvestors />
       </div>
     </div>
   </section>
