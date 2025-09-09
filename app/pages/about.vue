@@ -42,13 +42,13 @@
       level: 2,
       bio: `Jonathan Stevens is an accomplished professional with extensive experience in the acquisitions of commercial businesses, real estate investing, and business management. He specializes in building and nurturing relationships between buyers and sellers, ensuring smooth transactions and long-lasting partnerships. With years of expertise across diverse industries—-including hospitality and operations-—Jonathan has developed a keen understanding of what it takes to drive success in complex business ventures.In addition to his professional achievements, Jonathan is deeply committed to his family and dedicated to building a lasting legacy. He takes pride in balancing his career with his personal values, striving to make a positive impact in both his professional and personal life.`,
     },
-    {
-      name: 'Destiny Lopez',
-      title: `Acquisitions Specialist`,
-      image: '/about/destiny.jpg',
-      level: 2,
-      bio: `At Unlocked Home Project, Destiny serves as an acquisitions specialist, expertly fostering connections with property owners prepared to sell. With an unwavering enthusiasm for real estate and a keen interest in its transformative potential, Destiny thrives as a vital member of a team dedicated to impactful change. Drawn to UHP by its commitment to value-driven practices, Destiny infuses every interaction with integrity, transparency, and trust, ensuring each exchange is personal, purposeful, and client-focused. This steadfast dedication and people-centric approach consistently elevate the client experience, aligning with a powerful mission to make a difference in the industry.`,
-    },
+    // {
+    //   name: 'Destiny Lopez',
+    //   title: `Acquisitions Specialist`,
+    //   image: '/about/destiny.jpg',
+    //   level: 2,
+    //   bio: `At Unlocked Home Project, Destiny serves as an acquisitions specialist, expertly fostering connections with property owners prepared to sell. With an unwavering enthusiasm for real estate and a keen interest in its transformative potential, Destiny thrives as a vital member of a team dedicated to impactful change. Drawn to UHP by its commitment to value-driven practices, Destiny infuses every interaction with integrity, transparency, and trust, ensuring each exchange is personal, purposeful, and client-focused. This steadfast dedication and people-centric approach consistently elevate the client experience, aligning with a powerful mission to make a difference in the industry.`,
+    // },
     {
       name: 'Sabrina Malcolm',
       title: `Acquisitions Associate`,
