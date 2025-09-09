@@ -12,9 +12,11 @@
     loop: { type: Boolean, default: true },
   })
 
+  const uid = Math.random().toString(36).substring(2, 9)
+
   const navigationOptions = {
-    prevEl: '.custom-prev',
-    nextEl: '.custom-next',
+    prevEl: `.custom-prev-${uid}`,
+    nextEl: `.custom-next-${uid}`,
   }
 </script>
 
@@ -32,7 +34,7 @@
     </Swiper>
 
     <div class="caption">
-      <button class="custom-prev">←</button>
+      <button :class="['custom-prev', `custom-prev-${uid}`]">←</button>
       <div class="caption-label">
         <template v-if="link">
           <a :href="link" target="_blank">{{ label }}</a>
@@ -41,7 +43,7 @@
           {{ label }}
         </template>
       </div>
-      <button class="custom-next">→</button>
+      <button :class="['custom-next', `custom-next-${uid}`]">→</button>
     </div>
   </div>
 </template>
