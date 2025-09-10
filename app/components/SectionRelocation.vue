@@ -428,9 +428,11 @@
                           fill="#E38C3B"
                         />
                       </svg>
+                      <span>Prev</span>
                     </button>
 
                     <button class="custom-next nav-btn">
+                      <span>Next</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="14"
@@ -528,9 +530,11 @@
                           fill="#E38C3B"
                         />
                       </svg>
+                      <span>Prev</span>
                     </button>
 
                     <button class="custom-next nav-btn">
+                      <span>Next</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="14"
@@ -864,6 +868,37 @@
       max-width: 100%; // don’t overflow screen
       box-sizing: border-box;
     }
+    .nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      transition: background-color 0.15s ease-out;
+      svg {
+        width: 12px;
+        height: 12px;
+        path {
+          transition: fill 0.15s ease-out;
+        }
+      }
+      span {
+        color: var(--Copper);
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: color 0.15s ease-out;
+      }
+      &:hover {
+        background-color: var(--Copper);
+        span {
+          color: white;
+        }
+        svg {
+          path {
+            fill: white;
+          }
+        }
+      }
+    }
   }
 
   .mega-modal-content {
@@ -982,7 +1017,7 @@
       pointer-events: all;
       border: 1px solid var(--Copper);
       border-radius: 50px;
-      padding: 5px 6px;
+      padding: 5px 8px;
     }
 
     .swiper-button-disabled {
@@ -1090,6 +1125,7 @@
     }
 
     .mega-modal {
+      padding: 0 40px;
       h3 {
         .heading {
           font-size: 40px;
