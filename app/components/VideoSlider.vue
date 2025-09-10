@@ -14,8 +14,8 @@
       title: 'An interview with Jonathan Stratton',
     },
     {
-      src: 'https://www.youtube.com/embed/w3fjlKUknZ4',
-      title: 'Hear what agents have to say',
+      src: 'https://www.youtube.com/embed/-LVHOkc3Zi0?list=PLwWoVBr5668aTYkWTnd7q5BT1wr6M2Bnp',
+      title: 'An interview with Kristin Halls',
     },
   ]
 
