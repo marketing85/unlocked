@@ -69,19 +69,21 @@
               <p v-if="testimonial.quote" class="quote">
                 “{{ testimonial.quote }}
               </p>
+
               <h3>
-                <span v-if="!testimonial.quote">“</span
-                ><span>{{ testimonial.lead }}</span>
+                <span v-if="!testimonial.quote">“</span>
+                <span>{{ testimonial.lead }}</span>
+                <span v-if="!testimonial.body">”</span>
               </h3>
-              <div class="testimonial-body">
+
+              <div v-if="testimonial.body" class="testimonial-body">
                 <p
                   v-for="(line, index) in testimonial.body.split('\n')"
                   :key="index"
                   class="testimonial-body-line"
                 >
-                  <span>{{ line }}</span
-                  ><span
-                    v-if="index === testimonial.body.split('\n').length - 1"
+                  <span>{{ line }}</span>
+                  <span v-if="index === testimonial.body.split('\n').length - 1"
                     >”</span
                   >
                 </p>
