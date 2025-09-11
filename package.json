@@ -7,6 +7,7 @@
   },
   "scripts": {
     "build": "nuxt build",
+    "build-static": "nuxi build --preset static",
     "start": "nuxt dev",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
