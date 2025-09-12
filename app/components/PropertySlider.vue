@@ -58,7 +58,13 @@
       class="custom-swiper"
     >
       <SwiperSlide v-for="(img, i) in slides" :key="i">
-        <img :src="img" alt="" />
+        <BasePicture
+          :src="img"
+          alt="Property image"
+          width="603"
+          height="289"
+        />
+<!--        <img :src="img" alt="" />-->
       </SwiperSlide>
     </Swiper>
 

@@ -61,13 +61,22 @@
           v-if="slides[currentSlide].type === 'portrait-landscape'"
           class="layout layout-portrait-landscape"
         >
-          <img
+          <BasePicture
             v-for="(img, i) in slides[currentSlide].images"
             :key="i"
             :src="img"
             alt=""
             class="slide-image"
+            width="1100"
+            height="1467"
           />
+<!--          <img-->
+<!--            v-for="(img, i) in slides[currentSlide].images"-->
+<!--            :key="i"-->
+<!--            :src="img"-->
+<!--            alt=""-->
+<!--            class="slide-image"-->
+<!--          />-->
         </div>
 
         <!-- Square + Square layout -->
@@ -75,13 +84,22 @@
           v-else-if="slides[currentSlide].type === 'square-square'"
           class="layout layout-square-square"
         >
-          <img
+          <BasePicture
             v-for="(img, i) in slides[currentSlide].images"
             :key="i"
             :src="img"
             alt=""
             class="slide-image"
+            width="1100"
+            height="1467"
           />
+<!--          <img-->
+<!--            v-for="(img, i) in slides[currentSlide].images"-->
+<!--            :key="i"-->
+<!--            :src="img"-->
+<!--            alt=""-->
+<!--            class="slide-image"-->
+<!--          />-->
         </div>
 
         <!-- Triple Portrait layout -->
@@ -89,13 +107,23 @@
           v-else-if="slides[currentSlide].type === 'triple-portrait'"
           class="layout layout-triple-portrait"
         >
-          <img
+          <BasePicture
             v-for="(img, i) in slides[currentSlide].images"
             :key="i"
             :src="img"
             alt=""
             class="slide-image"
+            width="1100"
+            height="1467"
           />
+
+<!--          <img-->
+<!--            v-for="(img, i) in slides[currentSlide].images"-->
+<!--            :key="i"-->
+<!--            :src="img"-->
+<!--            alt=""-->
+<!--            class="slide-image"-->
+<!--          />-->
         </div>
 
         <!-- Landscape layout -->
@@ -103,11 +131,18 @@
           v-else-if="slides[currentSlide].type === 'landscape'"
           class="layout layout-landscape"
         >
-          <img
+          <BasePicture
             :src="slides[currentSlide].images[0]"
             alt=""
             class="slide-image"
+            width="1100"
+            height="1467"
           />
+<!--          <img-->
+<!--            :src="slides[currentSlide].images[0]"-->
+<!--            alt=""-->
+<!--            class="slide-image"-->
+<!--          />-->
         </div>
       </div>
     </transition>
@@ -169,7 +204,7 @@
     height: 400px;
   }
 
-  .slide-image {
+  .slide-image, .slide-image :deep(img) {
     width: 100%;
     height: auto;
     min-height: 100%;

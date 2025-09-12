@@ -14,20 +14,50 @@
 </template>
 
 <style lang="scss" scoped>
+  @use '@/assets/css/mixins' as m;
+
   .core-values {
+    position: relative;
     padding: 60px 0 70px;
     background-color: var(--DarkBlue);
-    background-image:
-      url('/background-lock-logo.png'), url('/background-texture-stone.jpg');
-    background-repeat: no-repeat, repeat;
-    background-size:
-      750px auto,
-      cover;
-    background-position:
-      left -205px top -120px,
-      center center;
-    background-blend-mode: normal, multiply;
+
+    > * { position: relative; z-index: 1; }
   }
+
+  .core-values::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    @include m.bg-with-webp(
+        '/background-lock-logo',
+        null,
+        'png',
+        left -205px top -120px,
+        750px auto,
+        no-repeat
+    );
+  }
+
+  .core-values::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    @include m.bg-with-webp(
+        '/background-texture-stone',
+        null,
+        'jpg',
+        center center,
+        cover,
+        repeat
+    );
+
+    mix-blend-mode: multiply;
+  }
+
   .container {
     max-width: 1088px;
     margin: 0 auto;
@@ -37,7 +67,6 @@
   h2 {
     color: var(--OffWhite);
     font-size: 48px;
-    font-style: normal;
     font-weight: 600;
     line-height: 122.631%;
     letter-spacing: 2.4px;
@@ -50,65 +79,72 @@
       margin: 0 0 40px;
     }
   }
+
   ul {
     display: flex;
     flex-direction: column;
     justify-self: center;
     margin: 0 auto;
   }
+
   li {
     display: flex;
     align-items: center;
     position: relative;
     color: var(--OffWhite);
-    padding: 25px 0px 25px 70px;
+    padding: 25px 0 25px 70px;
     font-size: 20px;
     font-weight: 600;
 
-    span {
-      z-index: 1;
-    }
+    span { z-index: 1; }
 
     &::before {
-      display: inline-block;
       content: '';
       position: absolute;
-      left: 0px;
-      background: rgba(227, 140, 59, 0.55);
-      border-radius: 50px;
+      left: 0;
       width: 50px;
       height: 50px;
+      border-radius: 50px;
+      background: rgba(227, 140, 59, 0.55);
     }
-    &.blue {
-      &::before {
-        background: rgba(103, 185, 223, 0.41);
-      }
+
+    &.blue::before {
+      background: rgba(103, 185, 223, 0.41);
     }
   }
 
   @media (min-width: 1120px) {
     .core-values {
       padding: 121px 0 143px;
-      background-size:
-        1000px auto,
-        cover;
-      background-position:
-        left -220px top -120px,
-        center center;
     }
+
+    .core-values::before {
+      @include m.bg-with-webp(
+          '/background-lock-logo',
+          null,
+          'png',
+          left -220px top -120px,
+          1000px auto,
+          no-repeat
+      );
+    }
+
     .container {
       max-width: 1088px;
       margin: 0 auto;
       padding: 0 15px;
     }
+
     h2 {
       text-align: left;
     }
+
     ul {
       display: flex;
       flex-direction: row;
       padding: 0 12px;
     }
+
     li {
       &::before {
         display: none;
@@ -126,7 +162,6 @@
       color: var(--OffWhite);
       text-align: center;
       font-size: 20px;
-      font-style: normal;
       font-weight: 600;
       line-height: 28px;
       letter-spacing: 0.8px;

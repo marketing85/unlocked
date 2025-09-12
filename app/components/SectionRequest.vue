@@ -19,25 +19,46 @@
 </template>
 
 <style lang="scss" scoped>
+  @use '@/assets/css/mixins' as m;
+
   .section-request {
     padding: 50px 20px;
     border-top: 6px solid var(--Copper, #e38c3b);
 
-    background:
-      radial-gradient(
-        73.56% 48.47% at 50% 50%,
-        rgba(0, 0, 0, 0.55) 0%,
-        rgba(0, 0, 0, 0) 88.7%
-      ),
-      linear-gradient(
-        0deg,
-        rgba(103, 185, 223, 0.84) 0%,
-        rgba(103, 185, 223, 0.84) 100%
-      ),
-      linear-gradient(0deg, var(--Blue, #67b9df) 0%, var(--Blue, #67b9df) 100%),
-      url('/agents/agents-background-image.jpg') lightgray 50% / cover no-repeat;
+    //background:
+    //  radial-gradient(
+    //    73.56% 48.47% at 50% 50%,
+    //    rgba(0, 0, 0, 0.55) 0%,
+    //    rgba(0, 0, 0, 0) 88.7%
+    //  ),
+    //  linear-gradient(
+    //    0deg,
+    //    rgba(103, 185, 223, 0.84) 0%,
+    //    rgba(103, 185, 223, 0.84) 100%
+    //  ),
+    //  linear-gradient(0deg, var(--Blue, #67b9df) 0%, var(--Blue, #67b9df) 100%),
+    //  url('/agents/agents-background-image.jpg') lightgray 50% / cover no-repeat;
 
     background-blend-mode: multiply, normal, color, normal;
+
+    @include m.bg-with-webp(
+        '/agents/agents-background-image',
+          (radial-gradient(
+              73.56% 48.47% at 50% 50%,
+              rgba(0, 0, 0, 0.55) 0%,
+              rgba(0, 0, 0, 0) 88.7%
+          ),
+          linear-gradient(
+              0deg,
+              rgba(103, 185, 223, 0.84) 0%,
+              rgba(103, 185, 223, 0.84) 100%
+          ),
+          linear-gradient(0deg, var(--Blue, #67b9df) 0%, var(--Blue, #67b9df) 100%),),
+        'jpg',
+        50% 50%,
+        cover,
+        no-repeat
+    );
   }
 
   .container {

@@ -26,9 +26,18 @@
             <!-- Background image box -->
             <div
               class="image-col"
-              role="img"
-              aria-label="Attorney reference image"
-            ></div>
+            >
+              <BasePicture
+                loading="eager"
+                fetchpriority="high"
+                src="/fsbo/office.jpg"
+                alt="FSBO Office"
+                width="702"
+                height="936"
+              />
+
+<!--              <img src="/fsbo/office.jpg" alt="FSBO Office">-->
+            </div>
           </div>
         </div>
 
@@ -113,11 +122,9 @@
   .top-section {
     padding: 0 0 50px;
 
-    .image-col {
+    .image-col img, .image-col :deep(img) {
       border-radius: 8px;
       border: 2px solid var(--Blue);
-      background: url('/fsbo/office.jpg') lightgray center center / cover
-        no-repeat;
       width: 100%;
       height: auto;
       aspect-ratio: 3/4;

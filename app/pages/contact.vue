@@ -1,4 +1,5 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+</script>
 
 <template>
   <div>
@@ -44,7 +45,15 @@
           </div>
 
           <div class="image-col">
-            <img src="/office-contact.jpg" alt="Unlocked Home office" />
+            <BasePicture
+              loading="eager"
+              fetchpriority="high"
+              src="/office-contact.jpg"
+              alt="Unlocked Home office"
+              width="1100"
+              height="891"
+            />
+<!--            <img src="/office-contact.jpg" alt="Unlocked Home office" />-->
           </div>
         </div>
 

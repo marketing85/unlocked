@@ -48,8 +48,14 @@
           </div>
         </div>
       </div>
+      <BasePicture
+        src="/fsbo/for-sale.jpg"
+        alt="For Sale By Owner"
+        width="702"
+        height="468"
+      />
 
-      <img src="/fsbo/for-sale.jpg" alt="For Sale By Owner" />
+<!--      <img src="/fsbo/for-sale.jpg" alt="For Sale By Owner" />-->
     </div>
   </section>
 </template>
@@ -61,14 +67,13 @@
     border-bottom: 6px solid var(--Copper);
     padding: 50px 0 80px;
 
-    img {
+    img, :deep(img) {
       width: 100%;
       max-width: 729px;
       margin: 0 auto;
       aspect-ratio: 3/2;
       border-radius: 6px;
       border: 1px solid var(--Blue, #67b9df);
-      background: url(<path-to-image>) lightgray 50% / cover no-repeat;
     }
   }
 

@@ -43,13 +43,23 @@
           v-if="slides[currentSlide].type === 'portrait-landscape'"
           class="layout layout-portrait-landscape"
         >
-          <img
+          <BasePicture
             v-for="(img, i) in slides[currentSlide].images"
             :key="i"
             :src="img"
-            alt=""
+            alt="Relief image"
             class="slide-image"
+            width="1100"
+            height="1467"
           />
+
+<!--          <img-->
+<!--            v-for="(img, i) in slides[currentSlide].images"-->
+<!--            :key="i"-->
+<!--            :src="img"-->
+<!--            alt=""-->
+<!--            class="slide-image"-->
+<!--          />-->
         </div>
 
         <!-- Two equal columns -->
@@ -57,13 +67,22 @@
           v-else-if="slides[currentSlide].type === 'two-col'"
           class="layout layout-two-col"
         >
-          <img
+          <BasePicture
             v-for="(img, i) in slides[currentSlide].images"
             :key="i"
             :src="img"
-            alt=""
+            alt="Relief image"
             class="slide-image"
+            width="1100"
+            height="1467"
           />
+<!--          <img-->
+<!--            v-for="(img, i) in slides[currentSlide].images"-->
+<!--            :key="i"-->
+<!--            :src="img"-->
+<!--            alt=""-->
+<!--            class="slide-image"-->
+<!--          />-->
         </div>
 
         <!-- Single image -->
@@ -71,11 +90,18 @@
           v-else-if="slides[currentSlide].type === 'single'"
           class="layout layout-single"
         >
-          <img
+          <BasePicture
             :src="slides[currentSlide].images[0]"
-            alt=""
+            alt="Relief image"
             class="slide-image"
+            width="1100"
+            height="1467"
           />
+<!--          <img-->
+<!--            :src="slides[currentSlide].images[0]"-->
+<!--            alt=""-->
+<!--            class="slide-image"-->
+<!--          />-->
         </div>
       </div>
     </transition>
@@ -137,7 +163,7 @@
     }
   }
 
-  .slide-image {
+  .slide-image, .slide-image :deep(img) {
     width: 100%;
     height: auto;
     min-height: 100%;
@@ -146,7 +172,7 @@
     filter: grayscale(100%);
     transition: filter 0.5s ease;
   }
-  .slide-image:hover {
+  .slide-image:hover, .slide-image :deep(img:hover) {
     filter: grayscale(0%);
   }
 </style>
