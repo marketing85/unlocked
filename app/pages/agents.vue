@@ -29,48 +29,26 @@
         <div class="three-col-grid">
           <div class="grid-item">
             <h4>How the Process works</h4>
-            <div class="video">
-              <iframe
-                width="380"
-                height="214"
-                src="https://www.youtube.com/embed/2rve51-ce38"
-                title="How the process works"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
+            <VideoEmbed
+              src="https://www.youtube.com/embed/2rve51-ce38"
+              title="How the process works"
+            />
           </div>
+
           <div class="grid-item">
             <h4>Creative financing explained</h4>
-            <div class="video">
-              <iframe
-                width="380"
-                height="214"
-                src="https://www.youtube.com/embed/Ssj22oi2nkE"
-                title="Creative Financing Explained"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
+            <VideoEmbed
+              src="https://www.youtube.com/embed/Ssj22oi2nkE"
+              title="Creative Financing Explained"
+            />
           </div>
+
           <div class="grid-item">
             <h4>Hear what agents have to say</h4>
-            <div class="video">
-              <iframe
-                width="380"
-                height="214"
-                src="https://www.youtube.com/embed/w3fjlKUknZ4"
-                title="Hear what agents have to say"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
+            <VideoEmbed
+              src="https://www.youtube.com/embed/w3fjlKUknZ4"
+              title="Hear what agents have to say"
+            />
           </div>
         </div>
 
