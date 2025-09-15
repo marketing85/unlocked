@@ -3,9 +3,9 @@
 
   const showBenefits = ref(true)
 
-  const toggleBenefits = () => {
-    showBenefits.value = !showBenefits.value
-  }
+  // const toggleBenefits = () => {
+  //   showBenefits.value = !showBenefits.value
+  // }
   const steps = [
     {
       title: 'Detailed Assessment',
@@ -55,23 +55,23 @@
         </div>
 
         <div class="section-three">
-          <div @click="toggleBenefits" class="toggle-header">
+          <div class="toggle-header">
             <h3>Key Benefits <span>for Sellers</span></h3>
-            <svg
-              class="chevron"
-              :class="{ open: showBenefits }"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
+<!--            <svg-->
+<!--              class="chevron"-->
+<!--              :class="{ open: showBenefits }"-->
+<!--              xmlns="http://www.w3.org/2000/svg"-->
+<!--              width="20"-->
+<!--              height="20"-->
+<!--              viewBox="0 0 24 24"-->
+<!--              fill="none"-->
+<!--              stroke="currentColor"-->
+<!--              stroke-width="2"-->
+<!--              stroke-linecap="round"-->
+<!--              stroke-linejoin="round"-->
+<!--            >-->
+<!--              <polyline points="6 9 12 15 18 9" />-->
+<!--            </svg>-->
           </div>
 
           <transition name="expand">
@@ -253,7 +253,7 @@
     .toggle-header {
       position: relative;
       padding: 10px 15px;
-      cursor: pointer;
+      //cursor: pointer;
     }
 
     .chevron {

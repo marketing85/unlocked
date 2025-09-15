@@ -1,6 +1,4 @@
 <script setup>
-  import { slider } from '#build/ui'
-
   const residentialProperties = [
     { name: 'Chandler Street, Nashua, NH', units: 4 },
     { name: 'Kimball Street, Manchester, NH', units: 2 },

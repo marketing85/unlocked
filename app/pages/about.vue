@@ -94,7 +94,12 @@
           </div>
 
           <div class="image-col">
-            <img src="/about/about.jpg" alt="About Unlocked Home" />
+            <BasePicture
+              src="/about/about.jpg"
+              alt="About Unlocked Home"
+              width="1100"
+              height="1017"
+            />
           </div>
         </div>
 
@@ -109,7 +114,13 @@
 
           <div class="team-grid">
             <div v-for="person in people" :key="person.name" class="team-card">
-              <img :src="person.image" :alt="person.name" />
+              <BasePicture
+                :src="person.image"
+                :alt="person.name"
+                width="1100"
+                height="1100"
+              />
+
               <div class="overlay">
                 <div class="overlay-content">
                   <div class="always-show">

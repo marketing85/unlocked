@@ -1,10 +1,9 @@
 <script setup>
-  import { defineProps } from 'vue'
-
   const props = defineProps({
     variant: {
       type: String,
       default: 'default',
+      validator: v => ['default', 'partner', 'default'].includes(v),
     },
   })
 </script>
@@ -12,10 +11,14 @@
 <template>
   <section class="real-people" :class="variant">
     <div class="container">
-      <!-- Default layout -->
       <div v-if="variant === 'default'" class="grid">
         <div class="image-col">
-          <img src="/unlocked-home-people.jpg" alt="Real people" />
+          <BasePicture
+            src="/unlocked-home-people.jpg"
+            alt="Real people"
+            width="511"
+            height="394"
+          />
         </div>
         <div class="text-col">
           <h2>Real <span>People.</span></h2>
@@ -24,7 +27,6 @@
         </div>
       </div>
 
-      <!-- Partner layout -->
       <div v-else-if="variant === 'partner'" class="partner-layout">
         <h2>
           Real <span>people</span>. Real <span>partnerships</span>. Real
@@ -62,10 +64,12 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 40px;
+  }
 
-    img {
-      margin: 0 auto;
-    }
+  /* Center the media column without styling child component internals */
+  .image-col {
+    display: flex;
+    justify-content: center;
   }
 
   h2 {
@@ -100,6 +104,8 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
+
+    /* Leave these for places you still use <img> directly */
     img {
       width: 100%;
       height: 100%;
@@ -134,6 +140,7 @@
     .two-col-grid {
       grid-template-columns: 1fr 1.8fr;
       align-items: stretch;
+
       img {
         height: 100%;
       }

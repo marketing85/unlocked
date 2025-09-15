@@ -29,7 +29,12 @@
       class="custom-swiper"
     >
       <SwiperSlide v-for="(slide, i) in slides" :key="i">
-        <img :src="slide.src" :alt="slide.alt" />
+        <BasePicture
+          :src="slide.src"
+          :alt="slide.alt"
+          width="1088"
+          height="349"
+        />
       </SwiperSlide>
 
       <button ref="prevEl" class="nav-arrow left">←</button>

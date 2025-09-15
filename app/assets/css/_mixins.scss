@@ -1,0 +1,39 @@
+/* assets/css/_mixins.scss */
+
+@mixin bg-with-webp(
+  $basePath,
+  $gradient: null,
+  $ext: 'jpg',
+  $position: null,
+  $size: null,
+  $repeat: null
+) {
+  $fallback-url: url(#{$basePath}.#{$ext});
+  $mime: if($ext == 'png', 'png', 'jpeg');
+
+  // Fallback
+  @if $gradient != null {
+    background-image: #{$gradient}, $fallback-url;
+  } @else {
+    background-image: $fallback-url;
+  }
+
+  // Optional extras
+  @if $position != null { background-position: $position; }
+  @if $size != null { background-size: $size; }
+  @if $repeat != null { background-repeat: $repeat; }
+
+  // WebP upgrade
+  @supports (background-image: image-set(url("") type("image/webp") 1x)) {
+    $webp-set: image-set(
+                    url(#{$basePath}.webp) type('image/webp') 1x,
+                    url(#{$basePath}.#{$ext}) type('image/#{$mime}') 1x
+    );
+
+    @if $gradient != null {
+      background-image: #{$gradient}, $webp-set !important;
+    } @else {
+      background-image: $webp-set !important;
+    }
+  }
+}

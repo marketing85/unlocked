@@ -30,6 +30,8 @@
 </template>
 
 <style lang="scss" scoped>
+  @use '@/assets/css/mixins' as m;
+
   .section-reference {
     padding: 50px 20px;
     border-top: 6px solid var(--Copper, #e38c3b);
@@ -79,11 +81,19 @@
   .image-col {
     border-radius: 8px;
     border: 2px solid var(--Blue);
-    background: url('/agents/agents-image.png') lightgray center center / cover
-      no-repeat;
+    //background: url('/agents/agents-image.png') lightgray center center / cover
+    //  no-repeat;
     width: 100%;
     height: auto;
     aspect-ratio: 217/191;
+    @include m.bg-with-webp(
+        '/agents/agents-image',
+        null,
+        'png',
+        center center,
+        cover,
+        no-repeat
+    );
   }
 
   @media (min-width: 768px) {

@@ -1,5 +1,5 @@
 <script setup>
-  import { ref } from 'vue'
+  import { ref, onMounted } from 'vue'
   import { Swiper, SwiperSlide } from 'swiper/vue'
   import { Navigation, Pagination } from 'swiper/modules'
 
@@ -7,6 +7,9 @@
   import 'swiper/css'
   import 'swiper/css/navigation'
   import 'swiper/css/pagination'
+
+  // Import spinner-enabled video embed
+  import VideoEmbed from '@/components/VideoEmbed.vue'
 
   const slides = [
     {
@@ -21,6 +24,17 @@
 
   const prevEl = ref(null)
   const nextEl = ref(null)
+
+  // Function to stop videos on slide change
+  const handleSlideChange = (swiper) => {
+    const iframes = swiper.el.querySelectorAll('iframe')
+    iframes.forEach((iframe, index) => {
+      if (index !== swiper.activeIndex) {
+        const src = iframe.getAttribute('src')
+        iframe.setAttribute('src', src) // resetting src stops playback
+      }
+    })
+  }
 </script>
 
 <template>
@@ -31,20 +45,11 @@
       :pagination="{ el: '.swiper-pagination', clickable: true }"
       :loop="true"
       class="custom-swiper"
+      @slideChange="handleSlideChange"
     >
       <SwiperSlide v-for="(slide, i) in slides" :key="i">
         <div class="video">
-          <iframe
-            class="youtube-video"
-            width="560"
-            height="315"
-            :src="slide.src"
-            :title="slide.title"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
+          <VideoEmbed :src="slide.src" :title="slide.title" />
         </div>
         <div class="video-label">{{ slide.title }}</div>
       </SwiperSlide>
@@ -68,12 +73,12 @@
   .video {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%;
+    padding-bottom: 56.25%; // 16:9 ratio
     height: 0;
     overflow: hidden;
     border-radius: 20px;
 
-    iframe {
+    :deep(iframe) {
       position: absolute;
       top: 0;
       left: 0;
@@ -96,7 +101,6 @@
 
   .custom-swiper {
     width: 100%;
-    //max-width: 320px;
     margin: 0 auto;
     border-radius: 12px;
   }
@@ -142,10 +146,4 @@
   .nav-arrow:hover {
     color: rgba(0, 0, 0, 0.7);
   }
-  //   .nav-arrow.left {
-  //     left: 12px;
-  //   }
-  //   .nav-arrow.right {
-  //     right: 12px;
-  //   }
 </style>
