@@ -1,9 +1,9 @@
-import { hasInjectionContext, getCurrentInstance, inject, defineAsyncComponent, defineComponent, ref, h, Suspense, Fragment, createApp, provide, shallowReactive, toRef, onErrorCaptured, onServerPrefetch, unref, createVNode, resolveDynamicComponent, reactive, effectScope, shallowRef, isReadonly, isRef, isShallow, isReactive, toRaw, computed, mergeProps, getCurrentScope, useSSRContext } from 'vue';
-import { k as klona, j as defuFn, e as createError$1, l as hasProtocol, m as isScriptProtocol, n as joinURL, w as withQuery, s as sanitizeStatusCode, o as getContext, $ as $fetch$1, q as baseURL, r as createHooks, t as executeAsync, v as toRouteMatcher, x as createRouter$1, y as defu } from '../nitro/nitro.mjs';
-import { RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
+import { hasInjectionContext, getCurrentInstance, inject, defineAsyncComponent, defineComponent, h, computed, unref, shallowRef, provide, shallowReactive, createElementBlock, ref, Suspense, Fragment, createApp, toRef, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, reactive, effectScope, isReadonly, isRef, isShallow, isReactive, toRaw, mergeProps, getCurrentScope, withCtx, nextTick, useSSRContext } from 'vue';
+import { e as createError$1, k as klona, j as defuFn, l as hasProtocol, m as isScriptProtocol, n as joinURL, w as withQuery, s as sanitizeStatusCode, o as getContext, $ as $fetch$1, q as baseURL, r as createHooks, t as executeAsync, v as toRouteMatcher, x as createRouter$1, y as defu } from '../nitro/nitro.mjs';
+import { useRoute as useRoute$1, RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
 import colors from 'tailwindcss/colors';
 import { _api, addAPIProvider, setCustomIconsLoader } from '@iconify/vue';
-import { ssrRenderSuspense, ssrRenderComponent, ssrRenderVNode, ssrRenderAttrs } from 'vue/server-renderer';
+import { ssrRenderSuspense, ssrRenderComponent, ssrRenderVNode } from 'vue/server-renderer';
 import { u as useHead$1, h as headSymbol } from '../routes/renderer.mjs';
 import 'node:http';
 import 'node:https';
@@ -15,6 +15,8 @@ import 'node:crypto';
 import '@iconify/utils';
 import 'consola';
 import 'better-sqlite3';
+import 'node:url';
+import 'ipx';
 import 'vue-bundle-renderer/runtime';
 import 'unhead/server';
 import 'devalue';
@@ -28,6 +30,7 @@ if (!globalThis.$fetch) {
 if (!("global" in globalThis)) {
   globalThis.global = globalThis;
 }
+const appLayoutTransition = false;
 const nuxtLinkDefaults = { "componentName": "NuxtLink" };
 const asyncDataDefaults = { "deep": false };
 const appId = "nuxt-app";
@@ -387,11 +390,59 @@ async function getRouteRules(arg) {
 }
 const _routes = [
   {
+    name: "about",
+    path: "/about",
+    component: () => import('./about-4kcNb-3Y.mjs')
+  },
+  {
     name: "index",
     path: "/",
-    component: () => import('./index-2TOHBY6E.mjs')
+    component: () => import('./index-BluZ4kpP.mjs')
+  },
+  {
+    name: "terms",
+    path: "/terms",
+    component: () => import('./terms-Btpid0hP.mjs')
+  },
+  {
+    name: "agents",
+    path: "/agents",
+    component: () => import('./agents-TC_xBvji.mjs')
+  },
+  {
+    name: "contact",
+    path: "/contact",
+    component: () => import('./contact-B7c5Dpyq.mjs')
+  },
+  {
+    name: "homeowners",
+    path: "/homeowners",
+    component: () => import('./homeowners-BeYjpyFo.mjs')
+  },
+  {
+    name: "privacy-policy",
+    path: "/privacy-policy",
+    component: () => import('./privacy-policy-BZfoxAhy.mjs')
+  },
+  {
+    name: "relief-division",
+    path: "/relief-division",
+    component: () => import('./relief-division-B5R2m3T9.mjs')
+  },
+  {
+    name: "for-sale-by-owner",
+    path: "/for-sale-by-owner",
+    component: () => import('./for-sale-by-owner-Deu1NRMF.mjs')
+  },
+  {
+    name: "real-estate-investors",
+    path: "/real-estate-investors",
+    component: () => import('./real-estate-investors-BCs5NDXu.mjs')
   }
 ];
+const _wrapInTransition = (props, children) => {
+  return { default: () => children.default?.() };
+};
 const ROUTE_KEY_PARENTHESES_RE = /(:\w+)\([^)]+\)/g;
 const ROUTE_KEY_SYMBOLS_RE = /(:\w+)[?+*]/g;
 const ROUTE_KEY_NORMAL_RE = /:\w+/g;
@@ -752,7 +803,7 @@ const LazyProseH4 = defineAsyncComponent(() => import('./ProseH4-TSBqf2qz.mjs').
 const LazyProseH5 = defineAsyncComponent(() => import('./ProseH5-Ce5YyBz6.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseH6 = defineAsyncComponent(() => import('./ProseH6-UieDQjwh.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseHr = defineAsyncComponent(() => import('./ProseHr-Dh1VTly1.mjs').then((r) => r["default"] || r.default || r));
-const LazyProseImg = defineAsyncComponent(() => import('./ProseImg-DHu-4L-N.mjs').then((r) => r["default"] || r.default || r));
+const LazyProseImg = defineAsyncComponent(() => import('./ProseImg-aGWjabZj.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseLi = defineAsyncComponent(() => import('./ProseLi-g1-DDs74.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseOl = defineAsyncComponent(() => import('./ProseOl-C_keEFje.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseP = defineAsyncComponent(() => import('./ProseP-CPB5a_w4.mjs').then((r) => r["default"] || r.default || r));
@@ -766,7 +817,7 @@ const LazyProseTh = defineAsyncComponent(() => import('./ProseTh-DidY3ieq.mjs').
 const LazyProseThead = defineAsyncComponent(() => import('./ProseThead-SNa7HjPP.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseTr = defineAsyncComponent(() => import('./ProseTr-1Gt1rJuE.mjs').then((r) => r["default"] || r.default || r));
 const LazyProseUl = defineAsyncComponent(() => import('./ProseUl-DxPiW6xm.mjs').then((r) => r["default"] || r.default || r));
-const LazyIcon = defineAsyncComponent(() => import('./index-DDRCvSKn.mjs').then((r) => r["default"] || r.default || r));
+const LazyIcon = defineAsyncComponent(() => import('./index-olNGJpnR.mjs').then((r) => r["default"] || r.default || r));
 const lazyGlobalComponents = [
   ["ProseA", LazyProseA],
   ["ProseBlockquote", LazyProseBlockquote],
@@ -1190,6 +1241,142 @@ const plugins = [
   plugin_MeUvTuoKUi51yb_kBguab6hdcExVXeTtZtTg9TZZBB8,
   prerender_server_sqIxOBipVr4FbVMA9kqWL0wT8FPop6sKAXLVfifsJzk
 ];
+const layouts = {
+  default: defineAsyncComponent(() => import('./default-Bw7Eio3A.mjs').then((m) => m.default || m))
+};
+const LayoutLoader = defineComponent({
+  name: "LayoutLoader",
+  inheritAttrs: false,
+  props: {
+    name: String,
+    layoutProps: Object
+  },
+  setup(props, context) {
+    return () => h(layouts[props.name], props.layoutProps, context.slots);
+  }
+});
+const nuxtLayoutProps = {
+  name: {
+    type: [String, Boolean, Object],
+    default: null
+  },
+  fallback: {
+    type: [String, Object],
+    default: null
+  }
+};
+const __nuxt_component_0 = defineComponent({
+  name: "NuxtLayout",
+  inheritAttrs: false,
+  props: nuxtLayoutProps,
+  setup(props, context) {
+    const nuxtApp = useNuxtApp();
+    const injectedRoute = inject(PageRouteSymbol);
+    const shouldUseEagerRoute = !injectedRoute || injectedRoute === useRoute();
+    const route = shouldUseEagerRoute ? useRoute$1() : injectedRoute;
+    const layout = computed(() => {
+      let layout2 = unref(props.name) ?? route?.meta.layout ?? "default";
+      if (layout2 && !(layout2 in layouts)) {
+        if (props.fallback) {
+          layout2 = unref(props.fallback);
+        }
+      }
+      return layout2;
+    });
+    const layoutRef = shallowRef();
+    context.expose({ layoutRef });
+    const done = nuxtApp.deferHydration();
+    let lastLayout;
+    return () => {
+      const hasLayout = layout.value && layout.value in layouts;
+      const transitionProps = route?.meta.layoutTransition ?? appLayoutTransition;
+      const previouslyRenderedLayout = lastLayout;
+      lastLayout = layout.value;
+      return _wrapInTransition(hasLayout && transitionProps, {
+        default: () => h(Suspense, { suspensible: true, onResolve: () => {
+          nextTick(done);
+        } }, {
+          default: () => h(
+            LayoutProvider,
+            {
+              layoutProps: mergeProps(context.attrs, { ref: layoutRef }),
+              key: layout.value || void 0,
+              name: layout.value,
+              shouldProvide: !props.name,
+              isRenderingNewLayout: (name) => {
+                return name !== previouslyRenderedLayout && name === layout.value;
+              },
+              hasTransition: !!transitionProps
+            },
+            context.slots
+          )
+        })
+      }).default();
+    };
+  }
+});
+const LayoutProvider = defineComponent({
+  name: "NuxtLayoutProvider",
+  inheritAttrs: false,
+  props: {
+    name: {
+      type: [String, Boolean]
+    },
+    layoutProps: {
+      type: Object
+    },
+    hasTransition: {
+      type: Boolean
+    },
+    shouldProvide: {
+      type: Boolean
+    },
+    isRenderingNewLayout: {
+      type: Function,
+      required: true
+    }
+  },
+  setup(props, context) {
+    const name = props.name;
+    if (props.shouldProvide) {
+      provide(LayoutMetaSymbol, {
+        isCurrent: (route) => name === (route.meta.layout ?? "default")
+      });
+    }
+    const injectedRoute = inject(PageRouteSymbol);
+    const isNotWithinNuxtPage = injectedRoute && injectedRoute === useRoute();
+    if (isNotWithinNuxtPage) {
+      const vueRouterRoute = useRoute$1();
+      const reactiveChildRoute = {};
+      for (const _key in vueRouterRoute) {
+        const key = _key;
+        Object.defineProperty(reactiveChildRoute, key, {
+          enumerable: true,
+          get: () => {
+            return props.isRenderingNewLayout(props.name) ? vueRouterRoute[key] : injectedRoute[key];
+          }
+        });
+      }
+      provide(PageRouteSymbol, shallowReactive(reactiveChildRoute));
+    }
+    return () => {
+      if (!name || typeof name === "string" && !(name in layouts)) {
+        return context.slots.default?.();
+      }
+      return h(
+        LayoutLoader,
+        { key: name, layoutProps: props.layoutProps, name },
+        context.slots
+      );
+    };
+  }
+});
+const ServerPlaceholder = defineComponent({
+  name: "ServerPlaceholder",
+  render() {
+    return createElementBlock("div");
+  }
+});
 const defineRouteProvider = (name = "RouteProvider") => defineComponent({
   name,
   props: {
@@ -1222,7 +1409,7 @@ const defineRouteProvider = (name = "RouteProvider") => defineComponent({
   }
 });
 const RouteProvider = defineRouteProvider();
-const __nuxt_component_0 = defineComponent({
+const __nuxt_component_2 = defineComponent({
   name: "NuxtPage",
   inheritAttrs: false,
   props: {
@@ -1282,15 +1469,28 @@ const _export_sfc = (sfc, props) => {
 };
 const _sfc_main$2 = {};
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
-  const _component_NuxtPage = __nuxt_component_0;
-  _push(`<div${ssrRenderAttrs(_attrs)}>`);
-  _push(ssrRenderComponent(_component_NuxtPage, null, null, _parent));
-  _push(`</div>`);
+  const _component_NuxtLayout = __nuxt_component_0;
+  const _component_NuxtRouteAnnouncer = ServerPlaceholder;
+  const _component_NuxtPage = __nuxt_component_2;
+  _push(ssrRenderComponent(_component_NuxtLayout, _attrs, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(ssrRenderComponent(_component_NuxtRouteAnnouncer, null, null, _parent2, _scopeId));
+        _push2(ssrRenderComponent(_component_NuxtPage, null, null, _parent2, _scopeId));
+      } else {
+        return [
+          createVNode(_component_NuxtRouteAnnouncer),
+          createVNode(_component_NuxtPage)
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
 }
 const _sfc_setup$2 = _sfc_main$2.setup;
 _sfc_main$2.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("app.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/nuxt/dist/pages/runtime/app.vue");
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
 const AppComponent = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["ssrRender", _sfc_ssrRender]]);
@@ -1397,5 +1597,5 @@ let entry;
 }
 const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { _export_sfc as _, useRouter as a, useNuxtApp as b, useRuntimeConfig as c, nuxtLinkDefaults as d, entry$1 as default, useRequestEvent as e, useAppConfig as f, asyncDataDefaults as g, createError as h, navigateTo as n, resolveRouteObject as r, useHead as u };
+export { _export_sfc as _, useRouter as a, useNuxtApp as b, useRuntimeConfig as c, nuxtLinkDefaults as d, entry$1 as default, asyncDataDefaults as e, createError as f, useRequestEvent as g, useAppConfig as h, navigateTo as n, resolveRouteObject as r, tryUseNuxtApp as t, useHead as u };
 //# sourceMappingURL=server.mjs.map

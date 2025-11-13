@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build": "nuxt build",
-    "build-static": "nuxi build --preset static",
+    "build-static": "nuxi build --preset static && node generate-sitemap.mjs",
     "start": "nuxt dev",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
@@ -22,6 +22,7 @@
     "axios": "^1.11.0",
     "better-sqlite3": "^12.2.0",
     "nuxt": "^4.0.1",
+    "sitemap": "^9.0.0",
     "swiper": "^11.2.10",
     "tailwindcss": "^4.1.11",
     "vue": "^3.5.18",
@@ -29,8 +30,10 @@
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.8.0",
+    "@nuxt/schema": "^4.2.1",
     "eslint": "^9.32.0",
     "glob": "^11.0.3",
+    "nuxt-simple-sitemap": "^4.4.1",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "sass": "^1.90.0",
