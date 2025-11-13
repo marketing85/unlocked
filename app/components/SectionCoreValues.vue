@@ -21,7 +21,10 @@
     padding: 60px 0 70px;
     background-color: var(--DarkBlue);
 
-    > * { position: relative; z-index: 1; }
+    > * {
+      position: relative;
+      z-index: 1;
+    }
   }
 
   .core-values::before {
@@ -31,12 +34,12 @@
     pointer-events: none;
 
     @include m.bg-with-webp(
-        '/background-lock-logo',
-        null,
-        'png',
-        left -205px top -120px,
-        750px auto,
-        no-repeat
+      '/background-lock-logo',
+      null,
+      'png',
+      left -205px top -120px,
+      750px auto,
+      no-repeat
     );
   }
 
@@ -45,17 +48,16 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
+    mix-blend-mode: multiply;
 
     @include m.bg-with-webp(
-        '/background-texture-stone',
-        null,
-        'jpg',
-        center center,
-        cover,
-        repeat
+      '/background-texture-stone',
+      null,
+      'jpg',
+      center center,
+      cover,
+      repeat
     );
-
-    mix-blend-mode: multiply;
   }
 
   .container {
@@ -96,7 +98,9 @@
     font-size: 20px;
     font-weight: 600;
 
-    span { z-index: 1; }
+    span {
+      z-index: 1;
+    }
 
     &::before {
       content: '';
@@ -120,12 +124,12 @@
 
     .core-values::before {
       @include m.bg-with-webp(
-          '/background-lock-logo',
-          null,
-          'png',
-          left -220px top -120px,
-          1000px auto,
-          no-repeat
+        '/background-lock-logo',
+        null,
+        'png',
+        left -220px top -120px,
+        1000px auto,
+        no-repeat
       );
     }
 

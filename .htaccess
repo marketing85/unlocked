@@ -1,4 +1,19 @@
 # -----------------------------
+# CANONICAL REDIRECTS (fix www/http duplication)
+# -----------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Redirect www to non-www (optional — use this or the opposite)
+  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+  RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
+
+  # Redirect all HTTP to HTTPS
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
+</IfModule>
+
+# -----------------------------
 # MIME TYPES
 # -----------------------------
 AddType image/avif            .avif
@@ -66,7 +81,6 @@ Options -Indexes
 # SPA FALLBACK (only if you have client-side routing)
 # -----------------------------
 <IfModule mod_rewrite.c>
-  RewriteEngine On
   # Serve existing files/folders directly
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d

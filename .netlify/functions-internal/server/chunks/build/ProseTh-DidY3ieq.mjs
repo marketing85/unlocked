@@ -12,6 +12,8 @@ import 'node:crypto';
 import '@iconify/utils';
 import 'consola';
 import 'better-sqlite3';
+import 'node:url';
+import 'ipx';
 import 'vue-router';
 import 'tailwindcss/colors';
 import '@iconify/vue';
