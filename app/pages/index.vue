@@ -1,4 +1,9 @@
 <script setup lang="ts">
+  usePageMeta({
+    title: 'Unlocked Home Project | Revolutionizing Real Estate Solutions',
+    description: 'Unlocked Home Project offers personalized, innovative real estate solutions for homeowners in complex situations, agents, and investors across New Hampshire and Maine. Experienced, knowledgeable, trustworthy.',
+    path: '',
+  });
   const { data: intro } = await useAsyncData(() =>
     queryCollection('content').path('/home/intro').first()
   )

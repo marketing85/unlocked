@@ -1,4 +1,10 @@
-<script setup></script>
+<script setup>
+  usePageMeta({
+    title: 'Mortgage and Foreclosure Relief Division | Get Help Now',
+    description: 'The Relief Division specializes in urgent, confidential assistance for homeowners facing foreclosure or mortgage distress. Find customized debt and property solutions.',
+    path: 'relief-division',
+  });
+</script>
 
 <template>
   <div>

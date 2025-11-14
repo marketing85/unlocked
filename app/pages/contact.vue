@@ -1,27 +1,9 @@
 <script setup lang="ts">
-  import { useHead } from 'nuxt/app'
-
-  useHead({
+  usePageMeta({
     title: 'Contact Unlocked Home Project | See How We Can Help',
-    meta: [
-      {
-        name: 'description',
-        content:
-          'Get in touch with Unlocked Home Project. Call, email, or visit our office in Moultonborough, NH for personalized assistance.',
-      },
-      {
-        name: 'keywords',
-        content:
-          'Unlocked Home Project, Contact, Mortgage Help, NH, MA, Foreclosure Assistance',
-      },
-    ],
-    link: [
-      {
-        rel: 'canonical',
-        href: 'https://unlockedhomeproject.com/contact',
-      },
-    ],
-  })
+    description: 'Get in touch with Unlocked Home Project. Call, email, or visit our office in Moultonborough, NH for personalized assistance.',
+    path: 'contact',
+  });
 </script>
 
 <template>

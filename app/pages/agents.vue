@@ -1,5 +1,11 @@
 <script setup>
   import BulletPanel from '@/components/base/BulletPanel'
+
+  usePageMeta({
+    title: 'Partnership Opportunities for Real Estate Agents',
+    description: 'Empower your real estate business. Unlocked Home Project partners with agents to offer creative closing solutions and expertise for complex property transactions.',
+    path: 'agents',
+  });
 </script>
 
 <template>
