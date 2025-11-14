@@ -392,52 +392,52 @@ const _routes = [
   {
     name: "about",
     path: "/about",
-    component: () => import('./about-BKBQADZm.mjs')
+    component: () => import('./about-CAdRqc0u.mjs')
   },
   {
     name: "index",
     path: "/",
-    component: () => import('./index-BZWbbjt8.mjs')
+    component: () => import('./index-tXpY47QJ.mjs')
   },
   {
     name: "terms",
     path: "/terms",
-    component: () => import('./terms-CKSc2MBa.mjs')
+    component: () => import('./terms-KDaa_-EA.mjs')
   },
   {
     name: "agents",
     path: "/agents",
-    component: () => import('./agents-BAHeFXci.mjs')
+    component: () => import('./agents-BD2-pc2k.mjs')
   },
   {
     name: "contact",
     path: "/contact",
-    component: () => import('./contact-Fi4DqT_E.mjs')
+    component: () => import('./contact-DD21VK-Q.mjs')
   },
   {
     name: "homeowners",
     path: "/homeowners",
-    component: () => import('./homeowners-Dmb-eHI5.mjs')
+    component: () => import('./homeowners-Cd6cmdoL.mjs')
   },
   {
     name: "privacy-policy",
     path: "/privacy-policy",
-    component: () => import('./privacy-policy-DJMDTgSf.mjs')
+    component: () => import('./privacy-policy-BJ5p-o4F.mjs')
   },
   {
     name: "relief-division",
     path: "/relief-division",
-    component: () => import('./relief-division-DQY5L_Od.mjs')
+    component: () => import('./relief-division-CUL4zUik.mjs')
   },
   {
     name: "for-sale-by-owner",
     path: "/for-sale-by-owner",
-    component: () => import('./for-sale-by-owner-D0T628bE.mjs')
+    component: () => import('./for-sale-by-owner-UnW-vFik.mjs')
   },
   {
     name: "real-estate-investors",
     path: "/real-estate-investors",
-    component: () => import('./real-estate-investors-CNzFkSNI.mjs')
+    component: () => import('./real-estate-investors-Btn4gO2b.mjs')
   }
 ];
 const _wrapInTransition = (props, children) => {
