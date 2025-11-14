@@ -1,4 +1,10 @@
 <script setup lang="ts">
+  usePageMeta({
+    title: 'Creative Solutions for Homeowners in Complex Situations',
+    description: 'Facing foreclosure, probate, or difficult property challenges? Unlocked Home Project provides expert, confidential, and customized solutions for NH and ME homeowners.',
+    path: 'homeowners',
+  });
+
   const { data: intro } = await useAsyncData(() =>
     queryCollection('content').path('/home/intro').first()
   )

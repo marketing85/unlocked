@@ -4318,7 +4318,7 @@ function _expandFromEnv(value) {
 const _inlineRuntimeConfig = {
   "app": {
     "baseURL": "/",
-    "buildId": "a68acbc2-a764-499c-9293-8c223c3d1c3d",
+    "buildId": "cad4a0da-44c7-46fa-a3b4-1582b517caeb",
     "buildAssetsDir": "/_nuxt/",
     "cdnURL": ""
   },
@@ -4357,6 +4357,7 @@ const _inlineRuntimeConfig = {
     }
   },
   "public": {
+    "siteUrl": "https://unlockedhomeproject.com",
     "content": {
       "wsUrl": ""
     },
@@ -4389,7 +4390,7 @@ const _inlineRuntimeConfig = {
     },
     "localDatabase": {
       "type": "sqlite",
-      "filename": "/Users/macstudio27-2/DEV/unlocked-site/.data/content/contents.sqlite"
+      "filename": "/Users/caseytrombley/DEV/unlocked/.data/content/contents.sqlite"
     },
     "integrityCheck": true
   },
@@ -4808,14 +4809,14 @@ async function errorHandler(error, event) {
 
 const script = "\"use strict\";(()=>{const t=window,e=document.documentElement,c=[\"dark\",\"light\"],n=getStorageValue(\"localStorage\",\"nuxt-color-mode\")||\"system\";let i=n===\"system\"?u():n;const r=e.getAttribute(\"data-color-mode-forced\");r&&(i=r),l(i),t[\"__NUXT_COLOR_MODE__\"]={preference:n,value:i,getColorScheme:u,addColorScheme:l,removeColorScheme:d};function l(o){const s=\"\"+o+\"\",a=\"\";e.classList?e.classList.add(s):e.className+=\" \"+s,a&&e.setAttribute(\"data-\"+a,o)}function d(o){const s=\"\"+o+\"\",a=\"\";e.classList?e.classList.remove(s):e.className=e.className.replace(new RegExp(s,\"g\"),\"\"),a&&e.removeAttribute(\"data-\"+a)}function f(o){return t.matchMedia(\"(prefers-color-scheme\"+o+\")\")}function u(){if(t.matchMedia&&f(\"\").media!==\"not all\"){for(const o of c)if(f(\":\"+o).matches)return o}return\"light\"}})();function getStorageValue(t,e){switch(t){case\"localStorage\":return window.localStorage.getItem(e);case\"sessionStorage\":return window.sessionStorage.getItem(e);case\"cookie\":return getCookie(e);default:return null}}function getCookie(t){const c=(\"; \"+window.document.cookie).split(\"; \"+t+\"=\");if(c.length===2)return c.pop()?.split(\";\").shift()}";
 
-const _EPBvUBRrV2EZfeK_1C6ZSN0SwMtHoa6xDY4vmSRU = (function(nitro) {
+const _Zxay46ad3jjMgKlmk790pkhcoYLpwcmpBWbuWEEUllU = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
 const plugins = [
-  _EPBvUBRrV2EZfeK_1C6ZSN0SwMtHoa6xDY4vmSRU
+  _Zxay46ad3jjMgKlmk790pkhcoYLpwcmpBWbuWEEUllU
 ];
 
 const _DRIVE_LETTER_START_RE = /^[A-Za-z]:\//;
@@ -4950,7 +4951,7 @@ const collections = {
 };
 
 const DEFAULT_ENDPOINT = "https://api.iconify.design";
-const _HZtdAn = defineCachedEventHandler(async (event) => {
+const _XPZTl6 = defineCachedEventHandler(async (event) => {
   const url = getRequestURL(event);
   if (!url)
     return createError$1({ status: 400, message: "Invalid icon request" });
@@ -5002,7 +5003,7 @@ const _HZtdAn = defineCachedEventHandler(async (event) => {
 
 const _SxA8c9 = defineEventHandler(() => {});
 
-const _wWkZ51 = eventHandler(async (event) => {
+const _XdzMoR = eventHandler(async (event) => {
   const collection = getRouterParam(event, "collection");
   setHeader(event, "Content-Type", "text/plain");
   const data = await useStorage().getItem(`build:content:database.compressed.mjs`) || "";
@@ -5355,7 +5356,7 @@ function cleanupQuery(query, options = { removeString: false }) {
   return result;
 }
 
-const _MvIw2N = eventHandler(async (event) => {
+const _dbw4dp = eventHandler(async (event) => {
   const { sql } = await readBody(event);
   const collection = getRouterParam(event, "collection");
   assertSafeQuery(sql, collection);
@@ -5366,7 +5367,7 @@ const _MvIw2N = eventHandler(async (event) => {
   return loadDatabaseAdapter(conf).all(sql);
 });
 
-const _MiSxYG = lazyEventHandler(() => {
+const _UFDcnn = lazyEventHandler(() => {
   const opts = useRuntimeConfig().ipx || {};
   const fsDir = opts?.fs?.dir ? (Array.isArray(opts.fs.dir) ? opts.fs.dir : [opts.fs.dir]).map((dir) => isAbsolute(dir) ? dir : fileURLToPath(new URL(dir, globalThis._importMeta_.url))) : void 0;
   const fsStorage = opts.fs?.dir ? ipxFSStorage({ ...opts.fs, dir: fsDir }) : void 0;
@@ -5384,16 +5385,16 @@ const _MiSxYG = lazyEventHandler(() => {
   return useBase(opts.baseURL, ipxHandler);
 });
 
-const _lazy_iO7Q_6 = () => import('../routes/renderer.mjs').then(function (n) { return n.r; });
+const _lazy_qwNxPE = () => import('../routes/renderer.mjs').then(function (n) { return n.r; });
 
 const handlers = [
-  { route: '/__nuxt_error', handler: _lazy_iO7Q_6, lazy: true, middleware: false, method: undefined },
-  { route: '/api/_nuxt_icon/:collection', handler: _HZtdAn, lazy: false, middleware: false, method: undefined },
+  { route: '/__nuxt_error', handler: _lazy_qwNxPE, lazy: true, middleware: false, method: undefined },
+  { route: '/api/_nuxt_icon/:collection', handler: _XPZTl6, lazy: false, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
-  { route: '/__nuxt_content/:collection/sql_dump.txt', handler: _wWkZ51, lazy: false, middleware: false, method: undefined },
-  { route: '/__nuxt_content/:collection/query', handler: _MvIw2N, lazy: false, middleware: false, method: undefined },
-  { route: '/_ipx/**', handler: _MiSxYG, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_iO7Q_6, lazy: true, middleware: false, method: undefined }
+  { route: '/__nuxt_content/:collection/sql_dump.txt', handler: _XdzMoR, lazy: false, middleware: false, method: undefined },
+  { route: '/__nuxt_content/:collection/query', handler: _dbw4dp, lazy: false, middleware: false, method: undefined },
+  { route: '/_ipx/**', handler: _UFDcnn, lazy: false, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_qwNxPE, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {

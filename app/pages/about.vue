@@ -1,4 +1,9 @@
 <script setup lang="ts">
+  usePageMeta({
+    title: 'About Unlocked Home Project | Innovative Real Estate Experts',
+    description: 'Learn about Unlocked Home Project, a family-run team of local real estate experts serving NH and ME. We provide transformative, creative solutions to homeowners, agents, and partners.',
+    path: 'about',
+  });
   const people = [
     {
       name: 'Jonathan Stratton',

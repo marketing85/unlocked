@@ -1,4 +1,10 @@
-<script setup></script>
+<script setup>
+  usePageMeta({
+    title: 'Terms and Conditions | Unlocked Home Project',
+    description: 'Read the Terms and Conditions for use of the Unlocked Home Project website and services. Outlining user agreements and legal disclaimers.',
+    path: 'terms',
+  });
+</script>
 
 <template>
   <div>

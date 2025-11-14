@@ -1,6 +1,12 @@
 <script setup>
   import { ref } from 'vue'
 
+  usePageMeta({
+    title: 'Real Estate Investment Opportunities in NH & ME',
+    description: 'Partner with Unlocked Home Project to discover exclusive real estate investment opportunities and access a consistent pipeline of profitable residential and commercial deals.',
+    path: 'real-estate-investors',
+  });
+
   const showBenefits = ref(true)
 
   // const toggleBenefits = () => {

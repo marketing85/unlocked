@@ -1,4 +1,10 @@
-<script setup></script>
+<script setup>
+  usePageMeta({
+    title: 'Privacy Policy | Unlocked Home Project Data Security',
+    description: 'Review the Unlocked Home Project Privacy Policy regarding the collection, use, and protection of your personal information and data privacy rights.',
+    path: 'privacy-policy',
+  });
+</script>
 
 <template>
   <div>

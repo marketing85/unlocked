@@ -1,6 +1,12 @@
 <script setup>
   import BulletPanel from '@/components/base/BulletPanel'
   import SectionFSBOTestimonial from '~/components/SectionFSBOTestimonial.vue'
+
+  usePageMeta({
+    title: 'Sell Your Home Without an Agent (FSBO) | Unlocked Home Project',
+    description: 'Selling For Sale By Owner? Get a fast, fair cash offer from Unlocked Home Project. Avoid agent fees, showings, and repair costs. Simple, stress-free closing.',
+    path: 'for-sale-by-owner',
+  });
 </script>
 
 <template>
