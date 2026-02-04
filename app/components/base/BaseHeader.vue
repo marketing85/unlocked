@@ -28,11 +28,16 @@
           <li>
             <NuxtLink to="/agents" class="link">Real Estate Agents</NuxtLink>
           </li>
-          <li>
-            <NuxtLink to="/relief-division" class="link"
-              >Relief Division</NuxtLink
-            >
-          </li>
+         <li>
+           <a
+             href="https://unlockedhomerelief.com/"
+             class="link"
+             target="_blank"
+             rel="noopener noreferrer"
+           >
+             Relief Division
+           </a>
+         </li>
           <li>
             <NuxtLink to="/homeowners" class="link">Homeowners</NuxtLink>
           </li>
